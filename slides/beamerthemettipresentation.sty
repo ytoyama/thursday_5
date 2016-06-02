@@ -1,0 +1,91 @@
+\mode<all>
+
+\newcommand{\tti@horizontaloffset}{\hspace{2ex}}
+\newenvironment{tti@horizontaloffsetenv}
+    {\tti@horizontaloffset}
+    {\tti@horizontaloffset}
+
+
+% font
+
+%% size
+
+\setbeamerfont*{frametitle}{size=\Large}
+\setbeamerfont*{block title}{size=\large}
+\setbeamerfont*{block body}{size=\normalsize}
+
+\setbeamerfont*{itemize/enumerate body}{size=\normalsize}
+\setbeamerfont*{itemize/enumerate subbody}{parent=itemize/enumerate body}
+\setbeamerfont*{itemize/enumerate subsubbody}{parent=itemize/enumerate subbody}
+
+\setbeamerfont*{caption}{size=\normalsize}
+\setbeamerfont*{footnote}{size=\fontsize{6pt}{7.5pt}\selectfont}
+
+\setbeamerfont*{title}{size=\LARGE}
+\setbeamerfont*{author}{size=\large}
+\setbeamerfont*{institute}{parent=author}
+
+\setbeamerfont*{headline}{size=\scriptsize}
+\setbeamerfont*{footline}{parent=headline}
+
+%% colors
+
+\definecolor{airforceblue}{rgb}{0.36,0.54,0.66}
+\definecolor{ttiblue}{rgb}{0.059,0.035,0.16}
+
+\setbeamercolor{headandfootline}{fg=white,bg=ttiblue}
+\setbeamercolor{frametitle}{fg=white,bg=airforceblue}
+\setbeamercolor{block title}{fg=white,bg=airforceblue}
+\setbeamercolor{itemize item}{fg=ttiblue}
+\setbeamercolor{itemize subitem}{fg=ttiblue}
+\setbeamercolor{itemize subsubitem}{fg=ttiblue}
+\setbeamercolor{enumerate item}{fg=black}
+
+% templates
+
+%% enumeration
+
+\setbeamertemplate{enumerate item}{(\insertenumlabel)}
+
+%% caption
+
+\setbeamertemplate{caption}{\insertcaption}
+
+%% headline and footline
+
+\setbeamertemplate{headline}{
+  \begin{beamercolorbox}[sep=1ex,wd=\paperwidth]{headandfootline}
+    \begin{tti@horizontaloffsetenv}
+      \insertshorttitle
+      \hfill
+      \insertshortauthor, \insertshortinstitute
+    \end{tti@horizontaloffsetenv}
+  \end{beamercolorbox}
+}
+
+\setbeamertemplate{footline}{
+  \begin{beamercolorbox}[sep=1ex,wd=\paperwidth]{headandfootline}
+    \begin{tti@horizontaloffsetenv}
+      \hfill
+      \insertpagenumber
+    \end{tti@horizontaloffsetenv}
+  \end{beamercolorbox}
+}
+
+%% titlepage
+
+\setbeamertemplate{title page}{
+  \centering
+  \parbox{\linewidth}{\centering
+    \usebeamercolor{title}\usebeamerfont{title}\inserttitle}
+  \par
+  \vspace{4em}
+  {\usebeamercolor{author}\usebeamerfont{author}\insertauthor}\par
+  \vspace{1em}
+  \parbox{\linewidth}{\centering
+    \usebeamercolor{institute}\usebeamerfont{institute}\insertinstitute}
+  \par
+}
+
+
+\mode<all>
