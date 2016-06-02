@@ -16,7 +16,7 @@ target_files = ${svg_figures:.svg=.pdf} ${xcf_figures:.xcf=.png}
 
 .SUFFIXES: .xcf .png
 .xcf.png:
-	convert -density 1024 -quality 100 ${.IMPSRC} ${.TARGET}
+	convert -flatten -density 1024 -quality 100 ${.IMPSRC} ${.TARGET}
 
 
 .PHONY: all
@@ -24,4 +24,4 @@ all: ${target_files}
 
 .PHONY: clean
 clean:
-	${RM} ${target_files}
+	${RM} *.pdf *.png

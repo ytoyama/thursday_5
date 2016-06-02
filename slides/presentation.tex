@@ -38,7 +38,7 @@
     \item Purpose: find the best function,
           f: \set{document}\rightarrow\set{sentiment label}
     \item Example: predicting a number of stars given by a user
-                   from the review text.
+                   from the review text
   \end{itemize}
   \begin{figure}
     \includegraphics[width=0.6\linewidth]{fig/review.png}
@@ -51,138 +51,17 @@
   \end{figure}
 \end{frame}
 
-% \begin{frame}{文間・カテゴリ間の関係}{}
-%   \begin{columns}[t]
-%     \begin{column}{0.6\textwidth}
-%       \begin{block}{文間の関係}
-%         「とても良かった」の文が
-%         \begin{itemize}
-%           \item 食事に関する文の直後に存在 \\
-%                 \then 食事\good
-%           \item 部屋に関する文の直後に存在 \\
-%                 \then 部屋\good
-%         \end{itemize}
-%         \begin{figure}
-%           \includegraphics[width=0.6\linewidth]
-%                           {fig/global_relations_among_sentences_v2.pdf}
-%         \end{figure}
-%       \end{block}
-%     \end{column}
-%     \begin{column}{0.4\textwidth}
-%       \begin{block}{カテゴリ間の関係}
-%         \begin{itemize}
-%           \item 他のカテゴリ\good \\
-%                 \then 「総合」カテゴリ\good
-%         \end{itemize}
-%         \begin{figure}
-%           \includegraphics[width=\linewidth]
-%                           {fig/relations_among_rating_categories.pdf}
-%         \end{figure}
-%       \end{block}
-%     \end{column}
-%   \end{columns}
-% \end{frame}
-
-% \begin{frame}{関連研究}{}
-%   \begin{block}{隠れ状態を用いたホテルレビューのレーティング予測
-%                 \footnote[frame]{
-%     藤谷宣典ら,
-%     隠れ状態を用いたホテルレビューのレーティング予測.
-%     言語処理学会第21回年次大会, 2015.
-%   }\\（従来手法）}
-%     \begin{itemize}
-%       \item 文毎のレーティングからレビュー全体のレーティングを予測
-%       \item カテゴリ間の繋がりを\fire{手調整で変化}させて考慮
-%     \end{itemize}
-%     \begin{figure}
-%       \vspace{-1em} % HACK
-%       \includegraphics[width=0.5\linewidth]
-%                       {fig/fujitani_miml_relations_among_rating_categories.pdf}
-%       \vspace{-1em} % HACK
-%     \end{figure}
-%   \end{block}
-%   \begin{block}{パラグラフベクトル
-%                 \footnote[frame]{
-%     Quoc Le et al.,
-%     Distributed representations of sentences and documents.
-%     ICML 2014, 2014.
-%   }}
-%     \begin{itemize}
-%       \item 文や文書を実数ベクトルに変換する手法
-%       \item \fire{レーティング予測において優れた性能}
-%     \end{itemize}
-%   \end{block}
-%   %\begin{block}{ニューラルネットワーク}
-%   %  \begin{itemize}
-%   %    %\item 神経回路を模した機械学習手法
-%   %    %\item 分類問題に適用可能
-%   %    \item \fire{入力間・出力間の複雑な関係}を考慮
-%   %  \end{itemize}
-%   %\end{block}
-% \end{frame}
-
-% \begin{frame}{提案手法}{}
-%   \begin{itemize}
-%     \item 文書・文間及びカテゴリ間の関係を自動で考慮した\\レーティング予測
-%     \item パラグラフベクトルと\fire{入出力間の複雑な関係を考慮}できる \\
-%           ニューラルネットワークを利用
-%   \end{itemize}
-%   %\begin{enumerate}
-%   %  \item パラグラフベクトルにより各レビューとその中の文のベクトルを生成
-%   %  \item 文ベクトルをレビュー毎に圧縮
-%   %  \item ニューラルネットワークによりレーティングを予測
-%   %\end{enumerate}
-%   \begin{figure}
-%     \includegraphics[width=0.8\linewidth]
-%                     {fig/model_with_detailed_processes.pdf}
-%   \end{figure}
-% \end{frame}
-
-% \begin{frame}{実験}{}
-%   \begin{block}{実験設定}
-%     \begin{itemize}
-%       \item 7カテゴリにおける0〜5点のレーティング予測の正答率を測定
-%       \item データセット：楽天トラベルにおけるレビュー約330,000件
-%     \end{itemize}
-%   \end{block}
-%   \begin{block}{結果}
-%     \begin{columns}[onlytextwidth,t]
-%       \begin{column}{0.6\linewidth}
-%         \begin{itemize}
-%           \item 提案手法が従来手法より\fire{高い正答率}を示した
-%           %\item \fire{文の並び}が予測のために重要
-%           %\item 文書ベクトルと文ベクトルを同時に用いることが有効
-%         \end{itemize}
-%       \end{column}
-%       \begin{column}{0.4\linewidth}
-%         \begin{table}
-%           \centering
-%           \begin{tabular}{l | r}
-%             手法 & 正答率 {[}\%{]} \\
-%             \hline
-%             従来手法 & 48.32 \\
-%             提案手法 & \fire{50.30} \\
-%           \end{tabular}
-%         \end{table}
-%       \end{column}
-%     \end{columns}
-%   \end{block}
-% \end{frame}
-
-% \begin{frame}{まとめと今後の予定}{}
-%   \begin{block}{まとめ}
-%     \begin{itemize}
-%       \item 文書・文間及びカテゴリ間の関係を考慮した \\
-%             レーティング予測手法を提案
-%       \item 従来手法より高い正答率
-%     \end{itemize}
-%   \end{block}
-%   \begin{block}{今後の予定}
-%     \begin{itemize}
-%       \item \fire{文間や単語間、文字間等のより多様な関係}を考慮 \\
-%             \arrow レビューの特徴の抽出と分類の\fire{モデルを統合}
-%     \end{itemize}
-%   \end{block}
-% \end{frame}
+\begin{frame}{Results}
+  \begin{itemize}
+    \item Our model is not working well yet ...
+    \item The below is the result of the model equal
+          to our model without fonts.
+    \item The state-of-the-art accuracy: \sim 94\%
+    \item More effort will be needed.
+  \end{itemize}
+  \begin{figure}
+    \includegraphics[width=\linewidth]{fig/cwsd_learning.png}
+  \end{figure}
+\end{frame}
 
 \end{document}
