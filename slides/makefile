@@ -1,4 +1,4 @@
-.include "../makefile"
+.include "../pre.mk"
 
 
 pdf_viewer = mupdf -r 160
@@ -17,3 +17,6 @@ view: ${presentation_pdf}
 	${pdf_viewer} ${.ALLSRC}
 
 ${presentation_pdf}: beamerthemettipresentation.sty images
+
+
+.include "../post.mk"

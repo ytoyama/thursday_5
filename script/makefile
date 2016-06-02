@@ -1,4 +1,4 @@
-.include "../makefile"
+.include "../pre.mk"
 
 
 pdf_viewer = mupdf
@@ -13,3 +13,6 @@ view: ${notes_pdf}
 	${pdf_viewer} -r 88 ${.ALLSRC}
 
 ${notes_pdf}: notes.cls images
+
+
+.include "../post.mk"
